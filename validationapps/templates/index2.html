@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .errordiv ul{
+            list-style:none;
+            margin:0px;
+            padding:0px
+        }
+        .errordiv ul li{
+            font-size:0px
+        }
+        .errordiv ul ul li{
+            color:red;
+            font-size:20px
+        }
+    </style>
+</head>
+<body>
+    {% if messages %}
+        {% for p in messages %}
+            <small class="errordiv">{{p}}</small>
+        {% endfor %}
+    {% endif %}
+<form action="/" method="POST">
+     {% csrf_token %}
+
+
+
+
+    {% for p in data %}
+        {{ p.label_tag }}<br>
+        {{p}}<br><br>
+
+    {% endfor %}
+    <input type="submit" value="submit">
+</form>
+    <div>
+        {% for d  in table %}
+           <p>{{d.even_field}}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
